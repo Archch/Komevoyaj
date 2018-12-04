@@ -1,0 +1,25 @@
+from pprint import pprint
+import random
+n = 5
+y='y'
+A = [[y] * n for i in range(n)]
+for i in range(n):
+    for j in range(n):
+        if i < j:
+            A[i][j] = random.randint(1,10)
+        else:
+            A[i][j] = A[j][i]
+        print(A[i][j], end=' ')
+    print()
+print(A)
+current_min = pow(10, 10)
+
+visited=[]
+for i in range(n):
+    current_min = pow(10,10)
+    for j in range(n):
+        if (A[i][j]<current_min) and (A[i][j]!=y) :
+            current_min=A[i][j]
+            print(current_min)
+            vroute=j
+        visited.append(vroute)
